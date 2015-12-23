@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+  {% block menu %}
+      <li> <a href={{ path('home')}}><i class="fa fa-home"></i> <strong>Home</strong> </a></li>
+      <li><a href={{ path('service')}}><strong>Services</strong></a></li>
+      <li class="active"> <a href={{ path('news')}}><i class="fa fa-about"></i><strong>News</strong></a> </li>
+      <li><a href={{ path('about')}}>  <i class="fa fa-about"></i><strong> About</strong></a> </li>
+      <li> <a href={{ path('faq')}}> <i class="fa fa-about"></i><strong> Faq</strong> </a>  </li>
+      <li> <a href={{ path('contact')}}> <i class="fa fa-contact"></i><strong> Contact Us</strong></a> </li>
+  {% endblock %}
+
+{% block badge %}
+    <div><img src="{{ asset('images/news4.jpg') }}" width="100%" height="200px"/> </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-11 col-sm-10 col-md-10 col-lg-10 col-md-offset-1 panel panel-default">
+        <div class="col-lg-7">
+            <div class="clearfix"></div>
+            <div class="bg-warning">
+                {% if newsResorces is defined %}
+
+
+                <h2>{{  newsResorces.title |title }}</h2>
+                <p>
+                    {{  newsResorces.article |raw }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div>
+            {% if rescentNews is defined %}
+                <h2> Recent News</h2>
+                {% for news in rescentNews %}
+                    <a href="/news/{{ news.id }}"> <p><strong>{{ news.title |capitalize }}</strong></p> </a>
+                    <br /><p>{{ news.publishDate |date }} |</p>
+                {%  endfor %}
+
+            {% endif %}
+                {% if mostRead is defined %}
+                    <h2>Most Read News</h2>
+                    {% for news in mostRead %}
+                        <a href="/news/{{ news.id }}"> <p><strong>{{ news.title |capitalize }}</strong></p> </a>
+                        <br /><p>{{ news.publishDate |date }} |</p>
+                    {%  endfor %}
+
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+ {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

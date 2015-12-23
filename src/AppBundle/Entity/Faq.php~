@@ -1,0 +1,30 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="faq")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FaqRepository")
+ */
+
+class Faq
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+
+
+}

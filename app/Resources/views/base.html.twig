@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}MyAdmissionlink{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/chuma.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('logo.jpg') }}" />
+
+    {% block sliderScrip %}
+    <script type="text/javascript">
+        $('.carousel').carousel({
+            interval: 1000
+        })
+    </script>
+
+
+    {% endblock %}
+
+    <style>
+        {% block style %}
+           body{
+                color:#7d7d7d;
+                font-size: 2rem;
+                line-height: 1.767rem;
+                font-family: Arial, Helvetica, sans-serif;
+               }
+        header{
+            width: 100%;
+            background-color: #0088CC;
+            z-index: 20;
+            position: fixed;
+           opacity: 0.7;
+            color:#F5F5F5;
+        }
+        footer{
+            background-image:url('{{ asset('images/background/tweed.png') }}');
+            background-size: contain;
+            position: relative;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin-top: 100px;
+            color: #F5F5F5;
+            text-align: center;
+            height: 300px;
+
+        }
+        .slider-cap{
+            z-index: 33;
+            color: white;
+
+        }
+        .item.next .carousel-caption {
+            opacity: 0;
+        }
+
+        .carousel-caption {
+            -webkit-transition: opacity 1s;
+            -moz-transition: opacity 1s;
+            -ms-transition: opacity 1s;
+            -o-transition: opacity 1s;
+            transition: opacity 1s;
+        }
+        .slider-cap p{
+            z-index: 33;
+            color: white;
+            font-size: 25px;
+        }
+        .process li{
+            font:normal 14px Arial, Helvetica, sans-serif;
+            color:#7d7d7d; line-height:1.8em; padding:3px 10px; margin:0;
+        }
+        .service p{
+            font:normal 12px Arial, Helvetica, sans-serif;
+            color:#7d7d7d; line-height:1.8em; padding:3px 10px; margin:0;
+        }
+        .container-fluid{
+            position: relative;
+            top: 100px;
+        }
+        .fixed-header{
+            z-index: 20;
+
+        }
+        .right { width:290px; margin:0; padding:10px 15px; float:right;}
+
+        .h2-line {font:bold 20px Arial, Helvetica, sans-serif;
+            border-top: 1px solid #dbdbdb; border-bottom:1px  solid #dbdbdb;
+            padding:20px 5px; margin:0 0 10px 0;}
+        .body img.floated { float:left; margin:5px 20px 5px 0; padding:0;}
+        h2 { font:bold 18px Arial, Helvetica, sans-serif;
+            color:#343434; border-bottom:1px  solid #dbdbdb; padding:10px 5px; margin:0 0 10px 0;}
+        p { font:normal 14px Arial, Helvetica, sans-serif;
+            color:#7d7d7d; line-height:1.8em; padding:3px 10px; margin:0;}
+        .p { font:normal 14px Arial, Helvetica, sans-serif;
+            color:#7d7d7d; line-height:1.8em; padding:3px 10px; margin:0;}
+        {% endblock %}
+    </style>
+</head>
+
+<body background="{{ asset('images/background/leather.png') }}">
+
+
+    {% block header %}
+        <header>
+        <div class="navbar-default">
+
+                <div class="navbar-header">
+                    <div class="navbar-logo ">
+                        <img src="{{ asset('logo.png') }}" width="250 px" height="100px">
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar">soLve</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            <div class="fixed-header">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right" style="color:red;background-color:#080808;border-bottom-style: solid;border-bottom-color: #3498db;">
+                        {% block menu %}
+                            <li class="active"> <a href={{ path('home')}}><i class="fa fa-home"></i> <strong>Home</strong> </a></li>
+                            <li><a href={{ path('service')}}><strong>Services</strong></a></li>
+		                    <li> <a href={{ path('news')}}><i class="fa fa-about"></i><strong>News</strong></a> </li>
+		                    <li><a href={{ path('about')}}>  <i class="fa fa-about"></i><strong> About</strong></a> </li>
+		                    <li> <a href={{ path('faq')}}> <i class="fa fa-about"></i><strong> Faq</strong> </a>  </li>
+		                    <li> <a href={{ path('contact')}}> <i class="fa fa-contact"></i><strong> Contact Us</strong></a> </li>
+                       {% endblock %}
+                    </ul>
+                </div>
+
+             </div>
+           {# <div class="">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">+234-8114551455</span>
+            </div>#}
+        </div>
+        </header>
+    {% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        {% block slogan %}
+
+        {% endblock %}
+    </div>
+<div class="row">
+{% block slider %}
+{% endblock %}
+</div>
+
+<div class="row">
+{% block badge %}
+{% endblock %}
+</div>
+    <h1></h1>
+
+    {% set flashbagNotices = app.session.flashbag.get('notice') %}
+    {% if flashbagNotices is not empty %}
+    <ul class="msg alert-success">
+        {% for notice  in flashbagNotices %}
+        <li>{{ notice  }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+
+<div class="row">
+{% block content %}
+{% endblock %}
+</div>
+
+
+</div>{# end of  fluid con2ainer #}
+    <footer>
+<div class="row foot">
+
+    <div class="col-sm-4">
+        <h1>Office Address</h1>
+        <h4>  <strong>5, Oja Iya Street, off Taiwo Road <br />Opposite Ostrich Bakery ,
+            <br /> Ilorin,Kwara State</strong>
+        </h4>
+
+        <h4> <strong> 7,Oyinlola Street,Akowonjo-Egbeda,<br />Lagos State</strong></h4>
+    </div>
+
+    <div class="col-sm-4">
+        <h1>Contact Us</h1>
+        <h3><strong>Office : +234-8114551455</strong></h3>
+        <h3><strong>Cell : +234-7034386541</strong></h3>
+        <h3><strong>email@myadmissionlink.com.ng</strong></h3>
+        <h5><strong>Manned 24hrs a day</strong></h5>
+
+    </div>
+
+
+    <div class="col-sm-4">
+        <h1> </h1>
+        <h1> </h1>
+        <p>
+
+             &copy;Copyright myadmissionlink . All Rights Reserved<br />
+            <a href="#">Home</a> | <a href="#">Contact</a> |
+        <br />
+            <a href="http//:www.facebook.com/myadmissionlink"><img src="{{ asset('images/rss_4.gif') }}" alt="facebook"
+                             width="16" height="16" border="0"
+                             class="rss" /></a> <a href="#"><img src="{{ asset('images/rss_2.gif') }}" alt="linkedin"
+                                                                 width="16" height="16" border="0" class="rss" /></a>
+            <a href="http//:www.twitter.com/myadmissionlink"><img src="{{ asset('images/rss_3.gif') }}" alt="twiter" width="16" height="16" border="0" class="rss" /></a>
+        </p>
+    </div>
+</div>
+
+       {# <p class="navbar navbar-text"> sOLve </p>
+
+    #}</footer>
+{% block javascripts %}
+    <script src="{{ asset('js/app.js') }}"></script>
+
+{% endblock %}
+
+
+</body>
+</html>

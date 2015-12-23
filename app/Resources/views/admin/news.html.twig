@@ -1,0 +1,35 @@
+{% extends 'admin/base.html.twig' %}
+    {% block page %}
+
+
+
+ <div class="col-sm-6 col-md-8 col-lg-8">
+     <div class="jumbotron">
+
+        {% block bodyTitle %}  <h3 class="h1">Create News </h3>   {% endblock %}
+        {{ include('admin/_form.html.twig') }}
+     </div>
+ </div>
+<div class="col-sm-6 col-md-3 col-lg-4">
+        {% block sideBarRight %}
+
+
+            {% if rescentNews is defined %}
+                <table class="table  table-hover">
+                    <tbody>
+                    {% for news in rescentNews %}
+                        <tr> <td> <a href="/admin/news/edit/{{ news.id }}"> {{ news.title |capitalize }} </a></td> </tr>
+                    {%  endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+
+        {% endblock %}
+</div>
+    {% endblock %} 
+
+ 
+  
+
+    

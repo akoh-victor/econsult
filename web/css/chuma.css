@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*
+solve
+*/
+.msg{
+background: rgb(113,223,113);
+    color: rgb(38,88,38);
+    padding: 0.813em 0;
+}
+.msg li:last-child{
+    margin: 0;
+    list-style-type: none;
+}
+.msg li:last-child{
+    padding: 0 0.813em ;
+    list-style-type: none;
+}
+.err{
+    background: rgb(255,77,77);
+    color: #fff;
+}
+.news{
+    overflow-y: scroll;
+    height: 400px;
+}
+.foot{
+
+}
+.foot h1{
+    color:#2AB59C ;
+}
+.foot div{
+    height: 250px;
+    border-right: 1px solid #29292A;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #29292A;
+    padding-right: 50px;
+
+}

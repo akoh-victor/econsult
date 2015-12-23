@@ -1,0 +1,206 @@
+{% extends 'base.html.twig' %}
+
+
+{% block slider %}
+    <div style="">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel" ta-slide-to="1"></li>
+                        <li data-target="#carousel" ta-slide-to="1"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                       <div style="height: 390px" class="item active">
+                            <img src="{{ asset('images/sliderImage/slide4.jpg') }}" alt="nice image"
+                                 style="height: 100%; width: 100%"/>
+                            <div class="carousel-caption " >
+                                <h1 class="h2">Education is not just access to life but life itself. At MEC,
+                                    we work hand in hand to turn your dream of quality
+                                    education to reality.</h1>
+
+                            </div>
+                        </div>
+
+                <div style="height: 390px" class="item">
+                    <img src="{{ asset('images/sliderImage/slide2.jpg') }}" alt="nice image"
+                         style="height: 100%; width: 100%"/>
+                    <div class="carousel-caption" >
+
+                       <h1>Study in American and European Universities with 50% Automatic Scholarship</h1>
+                    </div>
+                </div>
+
+                <div style="height: 390px" class="item">
+                    <img src="{{ asset('images/sliderImage/slide6.jpg') }}" alt="nice image"
+                         style="height: 100%; width: 100%"/>
+                    <div class="carousel-caption" >
+                       <h1>Secure Easy 200level Admission to any University of your choice without JAMB</h1>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+{% block badge %}
+<div style ="background-color:#ac2925;border:1px solid orange ;padding:3px; color: #fff; ">
+<marquee>50% automatic scholarship to study in European and American university admission in progress for October and February academic session!!</marquee>
+</div>
+{% endblock %}
+{% block slogan %}
+    <div style ="background-color:#204d74;border:1px solid #101010 ;padding-left:3px; padding-top: -5px; color: #fff;
+     font:normal 20px Arial, Helvetica, sans-serif;">
+       <div style ="width: 40%">Your pathway to success</div>
+        {#<div style ="width: 40%;position: relative; top: 100%; right:100% "><strong>Cell : +234-7034386541</strong></div>#}
+    </div>
+{% endblock %}
+{% block content %}
+
+    <div  class="col-sm-9 panel panel-default" style="background-image:url('{{ asset('images/background/notebook.png') }}'); ">
+
+        <div class="row">
+        <div class="col-sm-7">
+            <h3></h3>
+            <div style="background-image:url('{{ asset('images/background/welcom.png') }}');" id ="welcome">
+                <img src="{{ asset('images/welcom.jpg') }}" width="100%"  height="160 px"/> <p>  Welcome to<strong>  Myadmissionlink Educational Consult [MEC]</strong> a
+                    registered and Government approved educational center
+                    with registration no CRBN 326199. We subscribe to the
+                    idea of affordable yet qualitative education thus we
+                    serve as a link to obtaining hitch free admission and
+                    visa for our clients in our partner universities.
+
+                </p>
+            </div>
+
+        </div>
+        <div class="col-sm-5">
+            <h3></h3>
+            <div style="background-image:url('{{ asset('images/background/welcom.png') }}');">
+                <img src="{{ asset('images/value.gif') }}" width="100%" height="160 px"/>
+                <p>At MEC, our VISION is clear, our MISSION is
+                    attainable and we trust our VALUES  of honesty,
+                    commitment , accountability to help us in achieving
+                    effective and efficient  service delivery to our
+                    esteem clients.</p>
+
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-7">
+              <h3 class="list-group-item alert-info">Our Offers</h3>
+              <div  class="thumbnail  panel-primary panel-body">
+                  <p> At  <strong> Myadmissionlink Educational Consult,</strong> <br />
+                      We offer the following services and lots more...
+                  </p>
+                  <ul class ="process">
+                      <li><h4>Admission Processing</h4>
+                      <p>Study abroad processing seems a herculean task without
+                          proper documentation and right selection of course
+                          etc. At MEC, our team of experts relieve you the
+                          burden and disappointment of admission denial by...   <a href={{ path('service')}}>Continue reading</a></p></li>
+                      <li>Visa Processing Guidance</li>
+                      <li>Counseling Services </li>
+                      <li>Program and School Selection and Application </li>
+                      <li><a href={{ path('service')}}>And Lots more...</a> </li>
+                  </ul>
+              </div>
+
+          </div>
+          <div class="col-sm-5">
+
+              <h3 class="list-group-item alert-info">Admission Requirements</h3>
+              <div class="thumbnail  panel-primary panel-body">
+                  <p>Please note that required documents for admission processing varies from schools and countries</p>
+                  <ul class="process">
+                      <li> Certified O'level result-WAEC,NECO,GCE</li>
+                      <li>Data page of international passport</li>
+                      <li>Completed application form</li>
+                      <li>Medical fitness certificate</li>
+                      <li>Bsc/Msc certifiate/transcript for postgraduates applicant</li>
+                      <li>Sponsor letter</li>
+                      <li>English proficiency exam result-TOEFL,IELTS,GRE etc</li>
+                  </ul>
+              </div>
+          </div>
+
+        </div>
+        <div class="row">
+
+
+
+           <div class="panel panel-body">
+               <h3 class="list-group-item alert-info">Our Partners</h3>
+            <div class="col-sm-2 col-md- col-lg-2">
+                <div class="thumbnail">
+                <img src="{{ asset('images/partners/eul.png') }}"/>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <div class="thumbnail">
+                <img src="{{ asset('images/partners/girne.png') }}"/></div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <div class="thumbnail">
+                <img src="{{ asset('images/partners/loyalist.png') }}"/></div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <div class="thumbnail">
+                <img src="{{ asset('images/partners/tau.jpg') }}"/></div>
+            </div>
+               <div class="col-sm-2 col-md-2 col-lg-2">
+                   <div class="thumbnail">
+                       <img src="{{ asset('images/partners/ukhta.png') }}"/></div>
+               </div>
+               <div class="col-sm-2 col-md-2 col-lg-2">
+                   <div class="thumbnail">
+                       <img src="{{ asset('images/partners/emu.png') }}"/></div>
+               </div>
+           </div>
+
+
+
+
+         </div>
+    </div>
+    <div class="col-sm-3 ">
+
+        <img src="{{ asset('images/news1.jpg') }}" height="130px" width="100%">
+                <div class="panel" style="background-image:url('{{ asset('images/background/light.jpg') }}');">
+                    <div class="news">
+                        {% if rescentNews is defined %}
+                            <table class="table  table-hover">
+                                <tbody>
+                                {% for news in rescentNews %}
+                                    <tr> <td> <a href="/news/{{ news.id }}"> <p><strong>{{ news.title |capitalize }}</strong></p>
+                                        <br /><p>{{ news.publishDate |date }} |</p></a></td> </tr>
+                                {%  endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+                    </div>
+                </div>
+        <a href="{{ path('faq')}}"> <button type="button" class="btn btn-danger btn-lg btn-block">
+            <h3 class="h3">Do you have a question? <br />  ASK IT </h3></button></a>
+        <div class="ads">
+
+            <div class="thumbnail"> <a href="http://www.ijmbadmissions.com" target="_blank"><img
+                            src="{{ asset('images/ads/alevel.jpg') }}" height="300px" alt="IJMB ADMISSIONS" /></a></div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
