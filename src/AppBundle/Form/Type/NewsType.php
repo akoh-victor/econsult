@@ -29,21 +29,29 @@ class NewsType extends AbstractType
         //     $builder->add('content', null, array('required' => false));
 
         $builder
-        ->add('title', null, array('label' => 'Title', 'attr' => array('class'=>'form-control'),))
+            ->add('title', null, array('label' => 'Title', 'attr' => array('class'=>'form-control'),))
 
 
-        ->add('article', 'textarea', array(
+            ->add('file', 'file', array(
+                'data_class' => null,
+                'required' => false,
+                'label' => 'Image',
+            ))
 
-        		'attr' => array('cols' => 80,
-                                 'rows' => 10),
-        		'label' => 'Article',
-        ))
 
-        ->add('save', 'submit', array(
-        		'label' => 'Save',
-        'attr'=>array('class'=>'btn btn-md btn-info')
-     
-        ));
+
+            ->add('article', 'textarea', array(
+
+                    'attr' => array('cols' => 80,
+                                     'rows' => 10),
+                    'label' => 'Article',
+            ))
+
+            ->add('save', 'submit', array(
+                    'label' => 'Save',
+            'attr'=>array('class'=>'btn btn-md btn-info')
+
+            ));
     }
 
     /**

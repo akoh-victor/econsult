@@ -50,6 +50,10 @@ class Message
      * @ORM\Column(type="date")
      */
      protected $posted;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $view;
 
 
 
@@ -223,5 +227,30 @@ class Message
     public function getPosted()
     {
         return $this->posted;
+    }
+
+
+
+    /**
+     * Set view
+     *
+     * @param integer $view
+     * @return Message
+     */
+    public function setView($view)
+    {
+        $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * Get view
+     *
+     * @return integer 
+     */
+    public function getView()
+    {
+        return $this->view;
     }
 }

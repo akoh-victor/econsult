@@ -18,8 +18,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $News = $this->getDoctrine()
-            ->getRepository('AppBundle:News');
+        $News = $this->getDoctrine()->getRepository('AppBundle:News');
         $rescentNews = $News->findAllRescentPublish('20');
 
         return $this->render('default/index.html.twig', array(
@@ -32,11 +31,7 @@ class DefaultController extends Controller
      */
     public function adminIndexAction(Request $request)
     {
-
-
-        return $this->render('admin/index.html.twig', array(
-
-        ));
+        return $this->render('admin/index.html.twig', array( ));
     }
 
     /**
@@ -71,7 +66,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($questions);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('notice','Your question was sent!!! We will get back to you soon.');
+            $this->get('session')->getFlashBag()->add('notice','Your question was asked!!! We will get back to you soon.');
             return $this->redirect($this->generateUrl('faq'));
         }
 
@@ -98,8 +93,8 @@ class DefaultController extends Controller
     public function browsNewsAction()
     {
         $News = $this->getDoctrine()->getRepository('AppBundle:News');
-        $mostRead = $News->findAllRescentPublish('12');
-        $rescentNews = $News->findAllRescentPublish('12');
+        $mostRead = $News->mostView('20');
+        $rescentNews = $News->findAllRescentPublish('20');
 
 
         return $this->render('default/news.html.twig', array(
@@ -117,8 +112,8 @@ class DefaultController extends Controller
 
         $News = $this->getDoctrine()->getRepository('AppBundle:News');
         $newsResorces = $News->find($id);
-        $mostRead=$News->mostView(6);
-        $rescentNews= $News->findAllRescentPublish('3');
+        $mostRead=$News->mostView('20');
+        $rescentNews= $News->findAllRescentPublish('19');
 
 
 
@@ -171,11 +166,11 @@ class DefaultController extends Controller
         if ($form->isValid())
         {
             $message->setPosted(new \DateTime());
-
+            $message->setRead(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('notice','Your message was successfully sent!!! We will get back to you soon.');
+            $this->get('session')->getFlashBag()->add('notice','Your message was successfully sent !!! We will get back to you soon.');
             return $this->redirect($this->generateUrl('contact'));
         }
 
@@ -184,13 +179,15 @@ class DefaultController extends Controller
 
     }
 
+
     /**
-     * @Route("/contact", name = "readnews")
+     * @Route("/admin/email", name = "email")
      */
-    public function readNewsAction(Request $request)
+    public function checkemailAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/contact.html.twig', array(
-        ));
+
+        return $this->render('admin/email.html.twig', array());
+
     }
+
 }

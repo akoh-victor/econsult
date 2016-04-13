@@ -28,13 +28,40 @@ background: rgb(113,223,113);
 }
 .foot h1{
     color:#2AB59C ;
+    font-size: medium;
+}
+.foot h3{
+    line-height: 2em;
+    color:#fff ;
+    font-size: medium;
 }
 .foot div{
-    height: 250px;
+    height: 200px;
     border-right: 1px solid #29292A;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #29292A;
     padding-right: 50px;
 
+}
+.wrapper{
+    font-size: medium;
+    border:1px;
+    border-style: solid;
+    border-color: antiquewhite;
+    padding: 5px 5px 5px 5px;
+    margin-bottom:15px;
+    list-style:none;
+    background-color:white;
+    word-wrap: break-word;
+    text-wrap: normal;
+    overflow: auto;
+}
+#header-contact{
+    color:white;
+    width: 35%;
+    display: inline-block;
+    margin-left: 4%;
+    padding-left: 0%;
+    padding-top: 1%;
+    font-size: 1.1em;
+    font-weight: lighter;
+    font-family: "Courier New", Courier;
 }

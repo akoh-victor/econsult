@@ -7,6 +7,7 @@ use AppBundle\Entity\News;
 use AppBundle\Form\Type\NewsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 class NewsController extends Controller
@@ -22,7 +23,7 @@ class NewsController extends Controller
 
         if (!$News)
         { throw
-        $this->createNotFoundException( 'No News found for' );
+        $this->createNotFoundException( 'No News found' );
         }
 
         $news = new News();
@@ -30,8 +31,11 @@ class NewsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $news->setPublishDate(new \DateTime());
             $news->setExpire(0);
             $news->setView(1);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($news);
             $em->flush();
@@ -40,6 +44,7 @@ class NewsController extends Controller
         return $this->render('admin/news.html.twig', array(
             'form' => $form ->createView(),
             'rescentNews'=>$rescentNews,
+            'news'=>$news,
         ));
     }
 
@@ -76,7 +81,7 @@ class NewsController extends Controller
             }
         }
 
-        return $this->render('admin/news.html.twig', array( 'form' => $form ->createView(),  'rescentNews'=>$rescentNews, ));
+        return $this->render('admin/news.html.twig', array( 'form' => $form ->createView(), 'rescentNews'=>$rescentNews, ));
     }
 
 

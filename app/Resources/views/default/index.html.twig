@@ -2,7 +2,7 @@
 
 
 {% block slider %}
-    <div style="">
+
         <div id="carousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -14,7 +14,7 @@
             <div class="carousel-inner" role="listbox">
 
                        <div style="height: 390px" class="item active">
-                            <img src="{{ asset('images/sliderImage/slide4.jpg') }}" alt="nice image"
+                            <img src="{{ asset('images/sliderImage/slide4.jpg') }}" alt="welcome to myadmissionlink consult"
                                  style="height: 100%; width: 100%"/>
                             <div class="carousel-caption " >
                                 <h1 class="h2">Education is not just access to life but life itself. At MEC,
@@ -24,23 +24,23 @@
                             </div>
                         </div>
 
-                <div style="height: 390px" class="item">
-                    <img src="{{ asset('images/sliderImage/slide2.jpg') }}" alt="nice image"
-                         style="height: 100%; width: 100%"/>
-                    <div class="carousel-caption" >
+                        <div style="height: 390px" class="item">
+                            <img src="{{ asset('images/sliderImage/slide2.jpg') }}" alt="welcome to myadmissionlink consult"
+                                 style="height: 100%; width: 100%"/>
+                            <div class="carousel-caption" >
 
-                       <h1>Study in American and European Universities with 50% Automatic Scholarship</h1>
-                    </div>
-                </div>
+                               <h1>Study in American and European Universities with 50% Automatic Scholarship</h1>
+                            </div>
+                        </div>
 
-                <div style="height: 390px" class="item">
-                    <img src="{{ asset('images/sliderImage/slide6.jpg') }}" alt="nice image"
-                         style="height: 100%; width: 100%"/>
-                    <div class="carousel-caption" >
-                       <h1>Secure Easy 200level Admission to any University of your choice without JAMB</h1>
+                        <div style="height: 390px" class="item">
+                            <img src="{{ asset('images/sliderImage/slide6.jpg') }}" alt="welcome to myadmissionlink consult"
+                                 style="height: 100%; width: 100%"/>
+                            <div class="carousel-caption" >
+                               <h1>Secure Easy 200level Admission to any University of your choice without JAMB</h1>
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
@@ -52,7 +52,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
+
 {% endblock %}
 {% block badge %}
 <div style ="background-color:#ac2925;border:1px solid orange ;padding:3px; color: #fff; ">
@@ -61,9 +61,8 @@
 {% endblock %}
 {% block slogan %}
     <div style ="background-color:#204d74;border:1px solid #101010 ;padding-left:3px; padding-top: -5px; color: #fff;
-     font:normal 20px Arial, Helvetica, sans-serif;">
-       <div style ="width: 40%">Your pathway to success</div>
-        {#<div style ="width: 40%;position: relative; top: 100%; right:100% "><strong>Cell : +234-7034386541</strong></div>#}
+     font:normal 20px 'Courier New';">
+       <i>Your pathway to success</i>
     </div>
 {% endblock %}
 {% block content %}
@@ -73,8 +72,9 @@
         <div class="row">
         <div class="col-sm-7">
             <h3></h3>
-            <div style="background-image:url('{{ asset('images/background/welcom.png') }}');" id ="welcome">
-                <img src="{{ asset('images/welcom.jpg') }}" width="100%"  height="160 px"/> <p>  Welcome to<strong>  Myadmissionlink Educational Consult [MEC]</strong> a
+            <div style="background-image:url('{{ asset('images/background/room.jpg') }}');" id ="welcome">
+                <img src="{{ asset('images/welcom.jpg') }}" width="100%"  height="160 px"/>
+                <p  style="color: #313131">  Welcome to<strong>  Myadmissionlink Educational Consult [MEC]</strong> a
                     registered and Government approved educational center
                     with registration no CRBN 326199. We subscribe to the
                     idea of affordable yet qualitative education thus we
@@ -87,9 +87,9 @@
         </div>
         <div class="col-sm-5">
             <h3></h3>
-            <div style="background-image:url('{{ asset('images/background/welcom.png') }}');">
+            <div style="background-image:url('{{ asset('images/background/room.jpg') }}');">
                 <img src="{{ asset('images/value.gif') }}" width="100%" height="160 px"/>
-                <p>At MEC, our VISION is clear, our MISSION is
+                <p style="color: #313131">At MEC, our VISION is clear, our MISSION is
                     attainable and we trust our VALUES  of honesty,
                     commitment , accountability to help us in achieving
                     effective and efficient  service delivery to our
@@ -177,18 +177,24 @@
     </div>
     <div class="col-sm-3 ">
 
-        <img src="{{ asset('images/news1.jpg') }}" height="130px" width="100%">
+        <img src="{{ asset('images/banners/news1.jpg') }}" height="100px" width="100%">
                 <div class="panel" style="background-image:url('{{ asset('images/background/light.jpg') }}');">
                     <div class="news">
                         {% if rescentNews is defined %}
-                            <table class="table  table-hover">
-                                <tbody>
-                                {% for news in rescentNews %}
-                                    <tr> <td> <a href="/news/{{ news.id }}"> <p><strong>{{ news.title |capitalize }}</strong></p>
-                                        <br /><p>{{ news.publishDate |date }} |</p></a></td> </tr>
-                                {%  endfor %}
-                                </tbody>
-                            </table>
+                            {% for news in rescentNews %}
+                            <div style="height:100px" class="wrapper">
+                                <a href="/news/{{ news.id }}">
+                                    {% if news.file %}
+                                        <div class=" pull-left">
+                                            <img src="{{ asset('uploads/images/news/'~ news.file) }}"  width="120px" height="90px" style="padding-right: 5%"/>
+                                        </div>
+                                    {% endif %}
+                                    <div style="width:97%;padding-top: 15px; padding-left: 10px; color: #7d7d7d">
+                                        <strong> {{ news.title }}</strong><br /><p>{{ news.publishDate |date }} |</p>
+                                    </div>
+                                </a>
+                            </div>
+                            {%  endfor %}
                         {% endif %}
                     </div>
                 </div>

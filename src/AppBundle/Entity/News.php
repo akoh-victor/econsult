@@ -4,7 +4,9 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -35,7 +37,7 @@ class News
      */
     protected $article;
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      *
      */
     protected $publishDate;
@@ -44,6 +46,93 @@ class News
      *
      */
     protected $view;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
+     *     maxSizeMessage = "The maxmimum allowed file size is 2MB.",
+     *     mimeTypesMessage = "Only the filetypes image are allowed."
+     * )
+     */
+    private $file;
+
+
+
+
+
+
+    //image handling .....
+
+
+    public function getFullImagePath() {
+        return null === $this->file ? null : $this->getUploadRootDir(). $this->file;
+    }
+
+    protected function getUploadRootDir() {
+        // the absolute directory path where uploaded documents should be saved
+        return $this->getTmpUploadRootDir().$this->getId()."/";
+    }
+
+    protected function getTmpUploadRootDir() {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__.'/../../../web/uploads/images/news';
+    }
+
+
+
+
+
+
+    /**
+     * @ORM\PrePersist()
+     *
+     */
+    public function uploadImage() {
+        // the file property can be empty if the field is not required
+        if (null === $this->file) {
+            return;
+        }
+        if(!$this->id){
+            $this->file->move($this->getTmpUploadRootDir(), $this->file->getClientOriginalName());
+        }else{
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }
+        $this->setFile($this->file->getClientOriginalName());
+    }
+
+
+
+
+
+
+
+
+    /**
+     * @ORM\PostPersist()
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+        if(!is_dir($this->getUploadRootDir())){
+            mkdir($this->getUploadRootDir());
+        }
+        //copy($this->getTmpUploadRootDir().$this->file, $this->getFullImagePath());
+       // unlink($this->getTmpUploadRootDir().$this->file);
+    }
+
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function removeImage()
+    {
+        unlink($this->getFullImagePath());
+        rmdir($this->getUploadRootDir());
+    }
 
 
 
@@ -180,4 +269,32 @@ class News
     {
         return $this->view;
     }
+
+
+
+    /**
+     * Sets file.
+     *
+     * @param string $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+
+    /**
+     * Get file.
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+
+
+
+
 }

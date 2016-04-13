@@ -4,7 +4,7 @@
                           <li class="active"><a href={{ path('service')}}><strong>Services</strong></a></li>
                           <li> <a href={{ path('news')}}><i class="fa fa-about"></i><strong>News</strong></a> </li>
                           <li><a href={{ path('about')}}>  <i class="fa fa-about"></i><strong> About</strong></a> </li>
-                          <li> <a href={{ path('faq')}}> <i class="fa fa-about"></i><strong> Faq</strong> </a>  </li>
+                          <li> <a href={{ path('faq')}}> <i class="fa fa-about"></i><strong> FAQ</strong> </a>  </li>
                           <li> <a href={{ path('contact')}}> <i class="fa fa-contact"></i><strong> Contact Us</strong></a> </li>
                        {% endblock %}
 
@@ -12,15 +12,15 @@
 {% endblock %}
 
 {% block badge %}
-<div id="contactImage"><img src="{{ asset('images/services.jpg') }}" width="100%" height="200px"/> </div>
+<div id="contactImage"><img src="{{ asset('images/banners/services.jpg') }}" width="100%" height="200px"/> </div>
 {% endblock %}
 
 {% block content %}
 <div class="container panel panel-default">
 
-    <div class="col-md-8">
+    <div class="col-xs-12 col-sm-7 col-md-8">
         <div class="clear-fix"></div>
-          <h2>Services We Render!</h2>
+          <h2>Services We Render</h2>
             <p>
                 MEC partners with a great deal of universities accross the world viz:
                 USA,UK,CANADA,CYPRUS,AUSTRALIA,TURKEY,RUSSIA,SOUTH AFRICA and lots more for easy admission and visa
@@ -29,12 +29,14 @@
             </p>
              <h2 class="h2-line">Services List</h2>
         <div class="row service">
-            <div class="col-sm-4 col-xs-6">
-                 <img src="{{ asset('images/admissions.jpg') }}" alt="" width="223" height="204" class="thumbnail" />
+            <div class="col-xs-12 col-sm-3 col-md-4">
+                <div class="thumbnail">
+                 <img src="{{ asset('images/admissions.jpg') }}" alt="" width="100%" height="200px"  />
+                </div>
             </div>
-            <div class="col-sm-8 col-xs-6">
+            <div class="col-xs-12 col-sm-9 col-md-8">
                 <h4>Admission Processing</h4>
-                <p>Study abroad processing seems a herculean task without
+                <p> Study abroad processing seems a herculean task without
                     proper documentation and right selection of course
                     etc. At MEC, our team of experts relieve you the
                     burden and disappointment of admission denial by
@@ -59,15 +61,15 @@
                     UAE,
                     Mauritus,
                     Russia
-                    AND LOTS MORE..<br />
+                    AND LOTS MORE.. <br />
               </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-xs-6">
-                <img src="{{ asset('images/counsel.png') }}" width="223" height="204" alt=""  class="thumbnail" />
+            <div class="col-xs-12 col-sm-3 col-md-4">
+                <img src="{{ asset('images/counsel.png') }}" width="100%" height="200px" alt=""  class="thumbnail" />
             </div>
-            <div class="col-sm-8 col-xs-6">
+            <div class="col-xs-12 col-sm-9 col-md-8">
                 <h4>Counseling Services </h4>
                 <p>
                     Counselling is a helping relationship. At MEC our
@@ -80,10 +82,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-xs-6">
-                <img src="{{ asset('images/visa.jpg') }}" alt="" width="223" height="204" class="thumbnail" />
+            <div class="col-xs-12 col-sm-3 col-md-4">
+                <img src="{{ asset('images/visa.jpg') }}" alt="" width="100%" height="200px" class="thumbnail" />
             </div>
-            <div class="col-sm-8 col-xs-6">
+            <div class="col-xs-12 col-sm-9 col-md-8">
                 <h4>Visa Processing Guidance</h4>
                 <p>We offer you a time-tested and cost effective
                     process that enables quick admission and smooth
@@ -96,10 +98,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-xs-6">
-                <img src="{{ asset('images/serv_3.jpg') }}" alt="" width="223" height="204" class="thumbnail" />
+            <div class="col-xs-12 col-sm-3 col-md-4">
+                <img src="{{ asset('images/serv_3.jpg') }}" alt="" width="100%" height="100%" class="thumbnail" />
             </div>
-            <div class="col-sm-8 col-xs-6">
+            <div class="col-xs-12 col-sm-9 col-md-8">
                 <h4>Programs, School Selection and Application</h4>
                 <p>We have listening ears to understand the need
                     and dream of our clients as per school and career
@@ -109,10 +111,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-xs-6">
-                <img src="{{ asset('images/pb.jpg') }}" alt=""  width="223" height="204"  class="thumbnail" />
+            <div class="col-xs-12 col-sm-3 col-md-4">
+                <img src="{{ asset('images/pb.jpg') }}" alt=""  width="100%" height="100%"  class="thumbnail" />
             </div>
-            <div class="col-sm-8 col-xs-6">
+            <div class="col-xs-12 col-sm-9 col-md-8">
                 <h4>Pre-departure Briefing</h4>
                 <p>This includes information about weather, currency,
                     language, pick up at airport, flight booking,
@@ -126,10 +128,10 @@
         <h2 class="h2-line">Meet Our Partners</h2>
         <div class="partners">
             <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                    <img src="{{ asset('images/partners/girne.png') }}" alt=""  width="180" height="124"  class="thumbnail" />
+                <div class="col-xs-12 col-sm-3 col-md-4">
+                    <img src="{{ asset('images/partners/girne.png') }}" alt=""  width="100%" height="100%"  class="thumbnail" />
                 </div>
-                <div class="col-sm-8 col-xs-6">
+                <div class="col-xs-12 col-sm-9 col-md-8">
                     <h4>Girne American University</h4>
                     <p>GAU is the oldest university in the island of Cyprus, our location in Girne /Kyrenia,
                         North Cyprus has links with the past.GAU also have campuses in Turkey,America United Kingdom,
@@ -142,10 +144,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                    <img src="{{ asset('images/partners/eul.png') }}" alt=""  width="180" height="124"  class="thumbnail" />
+                <div class="col-xs-12 col-sm-3 col-md-4">
+                    <img src="{{ asset('images/partners/eul.png') }}" alt=""  width="100%" height="100%"  class="thumbnail" />
                 </div>
-                <div class="col-sm-8 col-xs-6">
+                <div class="col-xs-12 col-sm-9 col-md-8">
                     <h4>European University Lefke</h4>
                     <p>European University Cyprus developed out of Cyprus College, which was founded in 1961 by Ioannis Gregoriou.
                         The purpose was to provide a well-rounded education of high caliber,
@@ -155,19 +157,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                    <img src="{{ asset('images/partners/tau.jpg') }}" alt=""  width="180" height="124"  class="thumbnail" />
+                <div class="col-xs-12 col-sm-3 col-md-4">
+                    <img src="{{ asset('images/partners/tau.jpg') }}" alt=""  width="100%" height="100%"  class="thumbnail" />
                 </div>
-                <div class="col-sm-8 col-xs-6">
+                <div class="col-xs-12 col-sm-9 col-md-8">
                     <h4>Texila American University</h4>
                     <p>Texila American University (TAU), one of the best Caribbean Medical Schools is located in Guyana,
                         the only English-speaking country in South America.
                         TAU offers Health Science programs with a high level of professionalism and exactness. </p>
+
+                    <h4>We partner with lots of other universities, both local and international. <a href={{ path('contact')}}>
+                            Contact us today for more details</a></h4>
                 </div>
+
             </div>
         </div>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-xs-12 col-sm-5 col-md-4">
         <h2>Application Process</h2>
         <ol class="process">
             <li> <strong>Arrange an Appointment with MEC Staff</strong><br/>

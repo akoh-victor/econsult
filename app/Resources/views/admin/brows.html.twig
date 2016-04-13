@@ -7,30 +7,26 @@
             <div class="jumbotron">
 
 
-                  <div class="thumbnail">
-                      {% if form is defined %}
-                           <h3 class="h1">Manage questions </h3>
-                          {{ include('admin/_form.html.twig') }}
-                      {% endif %}
+                <div class="thumbnail">
 
-                      {% if question is defined %}
-                            <h3>Unanswered Questions </h3>
-                      <table class="table table-responsive table-hover">
-                          <tbody>
-                          {% for news in question %}
-                              <tr> <td> <a href="faq/answer/{{ news.id }}"> {{ news.question |capitalize }}  </a></td> </tr>
-                          {%  endfor %}
-                          </tbody>
-                      </table>
-                      {% endif %}
-                  </div>
+                    {% if selMessage is defined %}
+
+                       <h3 class="page-header"> {{ selMessage.title }}</h3>
+                        <p>
+                            {{  selMessage.message | nl2br }}<br />
+                            <h6>sent by - {{ selMessage.firstName }} {{ selMessage.lastName }}
+                            {{  selMessage.posted | date }}</h6>
+
+                        </p>
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-4">
             {% block sideBarRight %}
-                <div class="jumbotron message">
+             <div class="jumbotron message">
 
-                    {% if recentUnansweredMessages is defined %}
+                    {% if recentUnreadMessages is defined %}
                         <h3>Recent Messages </h3>
                         <table class="table  table-hover">
                             <tbody>
@@ -50,7 +46,7 @@
                         <table class="table  table-hover">
                             <tbody>
                             {% for Message in recentMessages %}
-                                <tr><td> <a href="/admin/message/read/{{ Message.id }}"> {{ Message.title |capitalize }} - {{ Message.posted |date }}</a></td></tr>
+                               <tr><td> <a href="/admin/message/read/{{ Message.id }}"> {{ Message.title |capitalize }} - {{ Message.posted |date }}</a></td></tr>
                             {%  endfor %}
                             </tbody>
                         </table>
@@ -65,7 +61,7 @@
                         <table class="table  table-hover">
                             <tbody>
                             {% for Message in recentReadMessages %}
-                                <tr><td> <a href="/admin/message/read/{{ Message.id }}"> {{ Message.title |capitalize }} - {{ Message.posted |date }}</a></td></tr>
+                                 <tr><td> <a href="/admin/message/read/{{ Message.id }}"> {{ Message.title |capitalize }} - {{ Message.posted |date }}</a></td></tr>
                             {%  endfor %}
                             </tbody>
                         </table>
@@ -88,12 +84,11 @@
                     {% endif %}
                 </div>
 
-
             {% endblock %}
         </div>
-    {% endblock %} 
+    {% endblock %}
 
- 
-  
 
-    
+
+
+

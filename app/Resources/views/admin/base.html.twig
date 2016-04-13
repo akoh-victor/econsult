@@ -2,20 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}My Admission link{% endblock %}</title>
-        {% block stylesheets %}     
+        <title>{% block title %}MyAdmissionlink{% endblock %}</title>
+        {% block stylesheets %}
+
             <link rel="stylesheet" href="{{ asset('css/app.css') }}">
             <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
             <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
             <link rel="stylesheet" href="{{ asset('css/font.css') }}">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('logo.jpg') }}" />
     </head>  
     <body id="{% block body_id %}{% endblock %}">
     <div id="wrapper ">
-
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0; color: white">
 
 
 
@@ -34,12 +35,12 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>olll  <i class="fa fa-caret-down"></i>
+                        <span class=" glyphicon glyphicon-user" aria-hidden="true"><strong>User</strong></span>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href={{ path('home') }} ><i class="fa fa-gear fa-fw"></i> Public Area</a> </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a> </li>
+                        <li><a href={{ path('security_logout') }}><i class="fa fa-sign-out fa-fw"></i> Logout</a> </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
@@ -63,15 +64,17 @@
                             <i class="fa fa-cog fa-fw"></i> Manage Contents
                         </li>
                         <li >
-                            <a href={{ path('create news') }} ><i class="fa fa-pencil fa-fw"></i>  News</a>
+                            <a href={{ path('create news') }} > News</a>
                         </li>
                         <li>
-                            <a href={{ path('read questions') }}><i class="fa fa-pencil fa-fw"></i> Questions</a>
+                            <a href={{ path('read questions') }}>Questions</a>
                         </li>
                         <li>
-                            <a href={{ path('read messages') }}><i class="fa fa-pencil fa-fw"></i> Messages</a>
+                            <a href={{ path('message home') }}> Messages</a>
                         </li>
-
+                        <li>
+                            <a href={{ path('email') }}> Email</a>
+                        </li>
 
                     </ul>
                 </div>

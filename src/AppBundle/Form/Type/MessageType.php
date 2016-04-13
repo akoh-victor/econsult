@@ -30,6 +30,7 @@ class MessageType extends AbstractType
 
         $builder
             ->add('firstName', 'text', array('label' => 'First Name', 'attr' => array('class'=>'form-control'),))
+
             ->add('lastName', 'text', array('label' => 'Last Name', 'attr' => array('class'=>'form-control'),))
             ->add('email', 'email', array('label' => 'Email','attr'
             =>array('placeholder'=>'Please enter a valid email address', 'class'=>'form-control',)))

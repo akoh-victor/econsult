@@ -2,10 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="google-site-verification"  content="J9NjSfx1O3UzPB4-s7p6_gRVhpkAcgjws3-epV6o27k"/>
+
     <title>{% block title %}MyAdmissionlink{% endblock %}</title>
     {% block stylesheets %}
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/chuma.css') }}">
+
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('logo.jpg') }}" />
 
@@ -27,24 +32,17 @@
                 line-height: 1.767rem;
                 font-family: Arial, Helvetica, sans-serif;
                }
-        header{
-            width: 100%;
-            background-color: #0088CC;
-            z-index: 20;
-            position: fixed;
-           opacity: 0.7;
-            color:#F5F5F5;
-        }
+
         footer{
-            background-image:url('{{ asset('images/background/tweed.png') }}');
-            background-size: contain;
+            background-image:url('{{ asset('images/background/brickwall.png') }}');
+            background-size: 100%;
             position: relative;
             padding-top: 50px;
             padding-bottom: 50px;
             margin-top: 100px;
-            color: #F5F5F5;
+            color: #7d7d7d;
             text-align: center;
-            height: 300px;
+            height: 100%;
 
         }
         .slider-cap{
@@ -76,10 +74,7 @@
             font:normal 12px Arial, Helvetica, sans-serif;
             color:#7d7d7d; line-height:1.8em; padding:3px 10px; margin:0;
         }
-        .container-fluid{
-            position: relative;
-            top: 100px;
-        }
+
         .fixed-header{
             z-index: 20;
 
@@ -105,44 +100,49 @@
 
     {% block header %}
         <header>
-        <div class="navbar-default">
 
-                <div class="navbar-header">
-                    <div class="navbar-logo ">
-                        <img src="{{ asset('logo.png') }}" width="250 px" height="100px">
+
+            <nav class="navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+
+                        <button style="" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="pull-left" href={{ path('home')}}> <img src="{{ asset('logo.png') }}" width="200 px" height="80px"></a>
                     </div>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar">soLve</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-            <div class="fixed-header">
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right" style="color:red;background-color:#080808;border-bottom-style: solid;border-bottom-color: #3498db;">
-                        {% block menu %}
-                            <li class="active"> <a href={{ path('home')}}><i class="fa fa-home"></i> <strong>Home</strong> </a></li>
-                            <li><a href={{ path('service')}}><strong>Services</strong></a></li>
-		                    <li> <a href={{ path('news')}}><i class="fa fa-about"></i><strong>News</strong></a> </li>
-		                    <li><a href={{ path('about')}}>  <i class="fa fa-about"></i><strong> About</strong></a> </li>
-		                    <li> <a href={{ path('faq')}}> <i class="fa fa-about"></i><strong> Faq</strong> </a>  </li>
-		                    <li> <a href={{ path('contact')}}> <i class="fa fa-contact"></i><strong> Contact Us</strong></a> </li>
-                       {% endblock %}
-                    </ul>
-                </div>
+                    <div id="header-contact">
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"><strong>234-8114551455</strong></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"> <strong>email@myadmissionlink.com</strong></span>
 
-             </div>
-           {# <div class="">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">+234-8114551455</span>
-            </div>#}
-        </div>
+                        <p> </p>
+                    </div>
+                <div class="navbar-collapse collapse pull-right">
+                      <ul class="nav navbar-nav" style="color:red;background-color:#080808; border-bottom: solid #3498db;">
+                         {% block menu %}
+                             <li class="active"> <a href={{ path('home')}}><i class="fa fa-home"></i> <strong>Home</strong> </a></li>
+                             <li><a href={{ path('service')}}><strong>Services</strong></a></li>
+                             <li> <a href={{ path('news')}}><i class="fa fa-about"></i><strong>News</strong></a> </li>
+                             <li><a href={{ path('about')}}><i class="fa fa-about"></i><strong> About</strong></a> </li>
+                             <li> <a href={{ path('faq')}}><i class="fa fa-about"></i><strong> FAQ</strong> </a>  </li>
+                             <li> <a href={{ path('contact')}}><i class="fa fa-contact"></i><strong> Contact Us</strong></a> </li>
+                        {% endblock %}
+                     </ul>
+
+                </div>
+                </div>
+            </nav>
+
         </header>
     {% endblock %}
-<div class="container-fluid">
+    <div class="container-fluid">
     <div class="row">
         {% block slogan %}
-
         {% endblock %}
     </div>
 <div class="row">
@@ -180,20 +180,21 @@
 
     <div class="col-sm-4">
         <h1>Office Address</h1>
-        <h4>  <strong>5, Oja Iya Street, off Taiwo Road <br />Opposite Ostrich Bakery ,
-            <br /> Ilorin,Kwara State</strong>
-        </h4>
+        <p>  5, Oja Iya Street, off Taiwo Road <br />Opposite Ostrich Bakery ,
+            <br /> Ilorin,Kwara State
+        </p>
 
-        <h4> <strong> 7,Oyinlola Street,Akowonjo-Egbeda,<br />Lagos State</strong></h4>
+        <p>  7,Oyinlola Street,Akowonjo-Egbeda,<br />Lagos State</p>
     </div>
 
     <div class="col-sm-4">
         <h1>Contact Us</h1>
-        <h3><strong>Office : +234-8114551455</strong></h3>
-        <h3><strong>Cell : +234-7034386541</strong></h3>
-        <h3><strong>email@myadmissionlink.com.ng</strong></h3>
-        <h5><strong>Manned 24hrs a day</strong></h5>
-
+        <p>Office : +234-8114551455</p>
+        <p>Cell : +234-7034386541</p>
+        <p>email@myadmissionlink.com</p>
+        <p>Manned 24hrs a day</p>
+        {# <div class="">
+           </div>#}
     </div>
 
 
@@ -202,14 +203,14 @@
         <h1> </h1>
         <p>
 
-             &copy;Copyright myadmissionlink . All Rights Reserved<br />
-            <a href="#">Home</a> | <a href="#">Contact</a> |
+             &copy; 2016 myadmissionlink. All Rights Reserved<br />
+            <a href={{ path('home')}}>Home</a> | <a href={{ path('contact')}}>Contact Us</a> | <a  href={{ path('service')}}>Services</a> | <a href={{ path('faq')}}>FAQ</a>
         <br />
-            <a href="http//:www.facebook.com/myadmissionlink"><img src="{{ asset('images/rss_4.gif') }}" alt="facebook"
+            <a href="http://www.facebook.com/myadmissionlink"><img src="{{ asset('images/rss_4.gif') }}" alt="facebook"
                              width="16" height="16" border="0"
                              class="rss" /></a> <a href="#"><img src="{{ asset('images/rss_2.gif') }}" alt="linkedin"
                                                                  width="16" height="16" border="0" class="rss" /></a>
-            <a href="http//:www.twitter.com/myadmissionlink"><img src="{{ asset('images/rss_3.gif') }}" alt="twiter" width="16" height="16" border="0" class="rss" /></a>
+            <a href="http://www.twitter.com/myadmissionlink"><img src="{{ asset('images/rss_3.gif') }}" alt="twiter" width="16" height="16" border="0" class="rss" /></a>
         </p>
     </div>
 </div>
