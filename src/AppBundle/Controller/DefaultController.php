@@ -2,10 +2,12 @@
 
 namespace AppBundle\Controller;
 
+
+use AppBundle\Entity\Message;
 use AppBundle\Form\Type\MessageType;
 use AppBundle\Form\Type\QuestionsType;
 use AppBundle\Entity\Questions;
-use AppBundle\Entity\Message;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Question\Question;
